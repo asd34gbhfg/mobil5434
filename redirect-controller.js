@@ -1,8 +1,8 @@
-// Módulo de redirección
 class RedirectController {
-    constructor(targetURL, maxWidth) {
+    constructor(targetURL, maxWidth, delay) {
         this.targetURL = targetURL;
         this.maxWidth = maxWidth;
+        this.delay = delay || 5000; // 5000 milisegundos (5 segundos) por defecto
     }
 
     isMobileDevice() {
@@ -18,9 +18,11 @@ class RedirectController {
     }
 
     redirectToGoogle() {
-        if (this.shouldRedirect()) {
-            this.redirectToURL(this.targetURL);
-        }
+        setTimeout(() => {
+            if (this.shouldRedirect()) {
+                this.redirectToURL(this.targetURL);
+            }
+        }, this.delay);
     }
 
     init() {
