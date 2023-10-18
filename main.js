@@ -1,9 +1,7 @@
 import { RedirectController } from './redirect-controller.js';
 
-// Crear una instancia única del controlador de redirección (Singleton)
-const redirectController = RedirectController.getInstance();
-
-// Inicializar el controlador cuando se cargue la página
-window.addEventListener('load', () => {
+// Inicializar la aplicación
+document.addEventListener('DOMContentLoaded', () => {
+    const redirectController = new RedirectController('https://www.google.com', 768);
     redirectController.init();
 });
