@@ -1,12 +1,8 @@
+// Módulo de redirección
 class RedirectController {
-    constructor() {
-        if (RedirectController.instance) {
-            return RedirectController.instance;
-        }
-        RedirectController.instance = this;
-
-        this.targetURL = 'https://www.google.com';
-        this.maxWidth = 768;
+    constructor(targetURL, maxWidth) {
+        this.targetURL = targetURL;
+        this.maxWidth = maxWidth;
     }
 
     isMobileDevice() {
@@ -32,5 +28,4 @@ class RedirectController {
     }
 }
 
-// Exportamos un Singleton
-export const RedirectController = new RedirectController();
+export { RedirectController };
